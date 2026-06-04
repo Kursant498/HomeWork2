@@ -5,12 +5,12 @@
    <body class="fixed-bottom-padding">
       <div class="border-bottom p-3 d-none mobile-nav">
          <div class="title d-flex align-items-center">
-            <a href="home.html" class="text-decoration-none text-dark d-flex align-items-center">
+            <a href="{% url 'home' %}" class="text-decoration-none text-dark d-flex align-items-center">
                <img class="osahan-logo mr-2" src="{% static 'img/logo.svg' %}">
                <h4 class="font-weight-bold text-success m-0">Grocery</h4>
             </a>
             <p class="ml-auto m-0">
-               <a href="listing.html" class="text-decoration-none bg-white p-1 rounded shadow-sm d-flex align-items-center">
+               <a href="{% url 'listing' %}" class="text-decoration-none bg-white p-1 rounded shadow-sm d-flex align-items-center">
                <i class="text-dark icofont-sale-discount"></i>
                <span class="badge badge-danger p-1 ml-1 small">50%</span>
                </a>
@@ -60,13 +60,13 @@
                         <div class="pt-3 pb-2  osahan-categories">
                            <div class="d-flex align-items-center mb-2">
                               <h5 class="m-0">What do you looking for?</h5>
-                              <a href="listing.html" class="ml-auto btn btn-outline-success btn-sm">See more</a>
+                              <a href="{% url 'listing' %}" class="ml-auto btn btn-outline-success btn-sm">See more</a>
                            </div>
                            <div class="categories-slider">
                               {% for category in category_all %}
                               <div class="col-c">
                                  <div class="bg-white shadow-sm rounded text-center my-2 px-2 py-3 c-it">
-                                    <a href="listing.html">
+                                    <a href="{% url 'listing' %}">
                                        <img src="{{ category.logo.url }}" class="img-fluid px-2 mx-auto">
                                        <p class="m-0 pt-2 text-muted text-center">{{ category.title }}</p>
                                     </a>
@@ -84,7 +84,7 @@
                            <div class="promo-slider pb-0 mb-0">
                               {% for product_image in product_image_all %}
                               <div class="osahan-slider-item mx-2">
-                                 <a href="promo_details.html"><img src="{{ product_image.image.url }}" class="img-fluid mx-auto rounded" alt="Responsive image"></a>
+                                 <a href="{% url 'product_details' %}"><img src="{{ product_image.image.url }}" class="img-fluid mx-auto rounded" alt="Responsive image"></a>
                               </div>
                               {% endfor %}
                               
@@ -102,7 +102,7 @@
                               <div class="col-6 col-md-3 mb-3">
                                  <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
                                     <div class="list-card-image">
-                                       <a href="{% url "product-detail" %}" class="text-dark">
+                                       <a href="{% url 'product_details' %}" class="text-dark">
                                           <div class="member-plan position-absolute"><span class="badge m-3 badge-danger">{{ product.discount }}%</span></div>
                                           <div class="p-3">
                                              <img src="{{ product.image1.url }}" class="img-fluid item-img w-100 mb-3">
@@ -140,7 +140,7 @@
                            <div class="row">
                               {% for product in product2_all %}
                               <div class="col-12 col-md-4 mb-3">
-                                 <a href="{% url "product-detail" %}" class="text-dark text-decoration-none">
+                                 <a href="{% url 'product_details' %}" class="text-dark text-decoration-none">
                                     <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
                                        <div class="recommend-slider2 rounded mb-0">
                                           <div class="osahan-slider-item m-2 rounded">

@@ -6,12 +6,12 @@
    <body class="fixed-bottom-padding">
       <div class="border-bottom p-3 d-none mobile-nav">
          <div class="title d-flex align-items-center">
-            <a href="home.html" class="text-decoration-none text-dark d-flex align-items-center">
+            <a href="{% url 'home' %}" class="text-decoration-none text-dark d-flex align-items-center">
                <img class="osahan-logo mr-2" src="img/logo.svg">
                <h4 class="font-weight-bold text-success m-0">Grocery</h4>
             </a>
             <p class="ml-auto m-0">
-               <a href="listing.html" class="text-decoration-none bg-white p-1 rounded shadow-sm d-flex align-items-center">
+               <a href="{% url 'listing' %}" class="text-decoration-none bg-white p-1 rounded shadow-sm d-flex align-items-center">
                <i class="text-dark icofont-sale-discount"></i>
                <span class="badge badge-danger p-1 ml-1 small">50%</span>
                </a>
@@ -54,13 +54,13 @@
                <div class="col-lg-6">
                   <div class="recommend-slider mb-3">
                      <div class="osahan-slider-item">
-                        <img src="{% static 'img/recommend/r1.jpg' %}" class="img-fluid mx-auto shadow-sm rounded" alt="Responsive image">
+                        <img src="{{ product.image1.url }}" class="img-fluid mx-auto shadow-sm rounded" alt="Responsive image">
                      </div>
                      <div class="osahan-slider-item">
-                        <img src="{% static 'img/recommend/r2.jpg' %}" class="img-fluid mx-auto shadow-sm rounded" alt="Responsive image">
+                        <img src="{{ product.image2.url }}" class="img-fluid mx-auto shadow-sm rounded" alt="Responsive image">
                      </div>
                      <div class="osahan-slider-item">
-                        <img src="{% static 'img/recommend/r3.jpg' %}" class="img-fluid mx-auto shadow-sm rounded" alt="Responsive image">
+                        <img src="{{ product.image3.url }}" class="img-fluid mx-auto shadow-sm rounded" alt="Responsive image">
                      </div>
                   </div>
                   <div class="pd-f d-flex align-items-center mb-3">
@@ -71,9 +71,9 @@
                <div class="col-lg-6">
                   <div class="p-4 bg-white rounded shadow-sm">
                      <div class="pt-0">
-                        <h2 class="font-weight-bold">Valencia Orange - Imported</h2>
+                        <h2 class="font-weight-bold">{{ product.title }}</h2>
                         <p class="font-weight-light text-dark m-0 d-flex align-items-center">
-                           Product MRP : <b class="h6 text-dark m-0">$263.00</b>
+                           Product MRP : <b class="h6 text-dark m-0">{{ product.prise }}</b>
                            <span class="badge badge-danger ml-2">50% OFF</span>
                         </p>
                         <a href="review.html">
@@ -98,8 +98,8 @@
                               <p class="text-muted m-0">Free</p>
                            </div>
                            <div class="col-6 text-right">
-                              <p class="font-weight-bold m-0">Available in:</p>
-                              <p class="text-muted m-0">1 kg, 2 kg, 5 kg</p>
+                              <p class="font-weight-bold m-0"></p>
+                              <p class="text-muted m-0"></p>
                            </div>
                         </div>
                      </div>
@@ -134,7 +134,7 @@
                               <input type="text" class="shadow-none border-0 form-control form-control-lg pl-0" placeholder="Type your city (e.g Chennai, Pune)" aria-label="" aria-describedby="basic-addon1">
                            </div>
                            <p class="font-weight-bold mb-2">Product Details</p>
-                           <p class="text-muted small mb-0">High quality Fresh Orange fruit exporters from South Korea for sale. All citrus trees belong to the single genus Citrus and remain almost entirely interfertile. This includes grapefruits, lemons, limes, oranges, and various other types and hybrids. The fruit of any citrus tree is considered a hesperidium, a kind of modified berry; it is covered by a rind wall.</p>
+                           <p class="text-muted small mb-0">{{product}}</p>
                         </div>
                      </div>
                   </div>
@@ -145,7 +145,7 @@
                <div class="col-sm-3 col-md-3 mb-3">
                   <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
                      <div class="list-card-image">
-                        <a href="product_details.html" class="text-dark">
+                        <a href="{% url 'product_details' %}" class="text-dark">
                            <div class="member-plan position-absolute"><span class="badge m-3 badge-danger">10%</span></div>
                            <div class="p-3">
                               <img src="{% static 'img/listing/v1.jpg' %}" class="img-fluid item-img w-100 mb-3">
@@ -173,7 +173,7 @@
                <div class="col-sm-3 col-md-3 mb-3">
                   <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
                      <div class="list-card-image">
-                        <a href="product_details.html" class="text-dark">
+                        <a href="{% url 'product_details' %}" class="text-dark">
                            <div class="member-plan position-absolute"><span class="badge m-3 badge-danger">5%</span></div>
                            <div class="p-3">
                               <img src="{% static 'img/listing/v2.jpg' %}" class="img-fluid item-img w-100 mb-3">
@@ -201,7 +201,7 @@
                <div class="col-sm-3 col-md-3 mb-3">
                   <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
                      <div class="list-card-image">
-                        <a href="product_details.html" class="text-dark">
+                        <a href="{% url 'product_details' %}" class="text-dark">
                            <div class="member-plan position-absolute"><span class="badge m-3 badge-warning">5%</span></div>
                            <div class="p-3">
                               <img src="{% static 'img/listing/v3.jpg' %}" class="img-fluid item-img w-100 mb-3">
@@ -224,7 +224,7 @@
                <div class="col-sm-3 col-md-3 mb-3">
                   <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
                      <div class="list-card-image">
-                        <a href="product_details.html" class="text-dark">
+                        <a href="{% url 'product_details' %}" class="text-dark">
                            <div class="member-plan position-absolute"><span class="badge m-3 badge-warning">15%</span></div>
                            <div class="p-3">
                               <img src="{% static 'img/listing/v4.jpg' %}" class="img-fluid item-img w-100 mb-3">
@@ -254,7 +254,7 @@
                <div class="col-sm-3 col-md-3 mb-3">
                   <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
                      <div class="list-card-image">
-                        <a href="product_details.html" class="text-dark">
+                        <a href="{% url 'product_details' %}" class="text-dark">
                            <div class="member-plan position-absolute"><span class="badge m-3 badge-success">10%</span></div>
                            <div class="p-3">
                               <img src="{% static 'img/listing/v5.jpg' %}" class="img-fluid item-img w-100 mb-3">
@@ -282,7 +282,7 @@
                <div class="col-sm-3 col-md-3 mb-3">
                   <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
                      <div class="list-card-image">
-                        <a href="product_details.html" class="text-dark">
+                        <a href="{% url 'product_details' %}" class="text-dark">
                            <div class="member-plan position-absolute"><span class="badge m-3 badge-success">10%</span></div>
                            <div class="p-3">
                               <img src="{% static 'img/listing/v6.jpg' %}" class="img-fluid item-img w-100 mb-3">
@@ -310,7 +310,7 @@
                <div class="col-sm-3 col-md-3 mb-3">
                   <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
                      <div class="list-card-image">
-                        <a href="product_details.html" class="text-dark">
+                        <a href="{% url 'product_details' %}" class="text-dark">
                            <div class="member-plan position-absolute"><span class="badge m-3 badge-danger">10%</span></div>
                            <div class="p-3">
                               <img src="{% static 'img/listing/v7.jpg' %}" class="img-fluid item-img w-100 mb-3">
@@ -338,7 +338,7 @@
                <div class="col-sm-3 col-md-3 mb-3">
                   <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
                      <div class="list-card-image">
-                        <a href="product_details.html" class="text-dark">
+                        <a href="{% url 'product_details' %}" class="text-dark">
                            <div class="member-plan position-absolute"><span class="badge m-3 badge-success">10%</span></div>
                            <div class="p-3">
                               <img src="{% static 'img/listing/v8.jpg' %}" class="img-fluid item-img w-100 mb-3">
